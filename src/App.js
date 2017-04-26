@@ -2,13 +2,27 @@ import React from 'react';
 
 // State capable component
 class App extends React.Component {
+    constructor(){
+        super();
+        this.state = {
+            txt: 'this is the state text',
+            dog: 0
+        }
+    }
+
+    update(e){
+        this.setState({ txt: e.target.value })
+    }
+
     render() {
-        const headerValue = this.props.txt;
+        const headerValue = this.state.txt
 
         return (
             <section>
-                <h1>{headerValue}</h1>  
-                <p>A cat, a dog, and a fish walk into a bar ... </p>
+                <h1>{headerValue} - {this.state.dog}</h1>  
+                <p>
+                    <input type="text" onChange={this.update.bind(this)} />
+                </p>
             </section>
         )        
     }
