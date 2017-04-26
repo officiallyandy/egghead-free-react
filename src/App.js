@@ -3,7 +3,12 @@ import React from 'react';
 // State capable component
 class App extends React.Component {
     render() {
-        return <h1>Hello my friend </h1>
+        return (
+            <section>
+                <h1>Wanna hear a joke?</h1>  
+                <p>A cat, a dog, and a fish walk into a bar ... </p>
+            </section>
+        )        
     }
 }
 
