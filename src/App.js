@@ -1,6 +1,5 @@
-import React from 'react';
+import React from 'react'
 
-// State capable component
 class App extends React.Component {
     constructor(){
         super();
@@ -9,35 +8,42 @@ class App extends React.Component {
             dog: 0
         }
     }
-
-    update(e){
-        this.setState({ txt: e.target.value })
-    }
-
-    render() {
-        const headerValue = this.state.txt
-
-        return (
-            <section>
-                <h1>{headerValue} - {this.state.dog}</h1>  
-                <p>
-                    <input type="text" onChange={this.update.bind(this)} />
-                </p>
-            </section>
-        )        
-    }
 }
 
-App.propTypes = {
-    txt: React.PropTypes.string,
-    cat: React.PropTypes.number.isRequired
-}
+App.prototype.update = updateApp
+App.prototype.render = renderApp
 
-App.defaultProps = {
-    txt: "Random text here"
-}
+App.propTypes = getPropTypes()
+App.defaultProps = getDefaultProps()
 
-// Stateless function version
-// const App = () => <h1>Hello stateless</h1>
 
 export default App
+
+
+
+function getDefaultProps(){
+    return {
+        txt: "Random text here"
+    }
+}
+function getPropTypes(){
+    return {
+            txt: React.PropTypes.string,
+            cat: React.PropTypes.number.isRequired
+        }
+}
+function updateApp (e){
+    this.setState({ txt: e.target.value })
+}
+function renderApp() {
+    const headerValue = this.state.txt
+
+    return (
+        <section>
+            <h1>{headerValue} - {this.state.dog}</h1>  
+            <p>
+                <input type="text" onChange={this.update.bind(this)} />
+            </p>
+        </section>
+    )        
+}
