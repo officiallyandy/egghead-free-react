@@ -3,21 +3,32 @@ import React from 'react';
 class App extends React.Component {
     constructor() {
         super();
-        this.state = {a: ''};
+        this.state = {
+            a: '',
+            b: ''
+        };
     }
 
-    update(e) {
+    update() {
         this.setState({
-            a: e.target.value,
-            b: e.target.value
+            a: this.refs.a.value,
+            b: this.refs.b.value
         });
     }
     render() {
         return (
             <div>
-                <input type="text" onChange={this.update.bind(this)} /> {this.state.a}
-                <hr />
-                <input type="text" onChange={this.update.bind(this)} /> {this.state.a}
+                <input
+                    ref="a"
+                    type="text"
+                    onChange={this.update.bind(this)}/>
+                        {this.state.a}
+                <hr/>
+                <input
+                    ref="b"
+                    type="text"
+                    onChange={this.update.bind(this)}/>
+                        {this.state.b}
             </div>
         )
     }
