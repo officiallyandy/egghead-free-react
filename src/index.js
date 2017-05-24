@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './refs';
+import App from './mountComponent';
 
 ReactDOM.render(
   <App cat={3} />,
